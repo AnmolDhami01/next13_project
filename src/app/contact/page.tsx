@@ -13,7 +13,9 @@ interface stateInterface {
   };
 }
 
-export default async function page({ params }: PropsTypes) {
+export default function page({
+  params,
+}: PropsTypes): React.FunctionComponentElement<HTMLAllCollection> {
   const [state, setState] = React.useState<stateInterface>({
     form: {
       email: "",
