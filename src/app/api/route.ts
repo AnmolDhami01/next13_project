@@ -8,7 +8,7 @@ export async function GET(request: Request, response: Response) {
   const responseWrapper = new ResponseWrapper();
   try {
     responseWrapper.setStatusDescription(statusDescription);
-    const users: userModel[] = await prismadb.Movie.findMany();
+    const users: userModel[] = await prismadb.movie.findMany();
     if (users?.length == 0) {
       statusDescription.setStatusCode(220);
       statusDescription.setStatusMessage("No users found");
@@ -30,7 +30,7 @@ export async function POST(request: NextRequest, response: Response) {
   const responseWrapper = new ResponseWrapper();
   try {
     responseWrapper.setStatusDescription(statusDescription);
-    const user: userModel = await prismadb.Movie.create({
+    const user: userModel = await prismadb.movie.create({
       data: {
         title: "String",
         description: "String",
